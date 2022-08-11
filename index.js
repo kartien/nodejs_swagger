@@ -1,14 +1,14 @@
 const express = require('express');
 const cors = require("cors");
 const morgan = require("morgan");
-const low = require("lowdb");
+const Lowdb = require("lowdb");
 
 const PORT = process.env.PORT || 3000;
 
-const FileSync = require("lowdb/adapter/FileSync");
+const FileSync = require("lowdb/adapters/FileSync");
 
 const adapter = new FileSync("db.json");
-const db = low(adapter);
+const db = Lowdb(adapter);
 
 db.defaults({ books: [] }).write();
 
