@@ -4,8 +4,33 @@ const { nanoid } = require("nanoid");
 
 const idLenght = 8;
 
+/**
+ * @swagger
+ * components:
+ *    schemas: 
+ *     Book: 
+ *       type: object
+ *       required: 
+ *         - title
+ *         - author 
+ *        properties:
+ *          id: 
+ *            type: string
+ *            description: The auto-generated id of the book 
+ *          title: 
+ *            type: string
+ *            description: The book title 
+ *          authro:
+ *             type: string
+ *             description: The author
+ *        example: 
+ *           id: d5fE_asz
+ *           title: Clean Code 
+ *           author: Robert C Martin 
+ */
+
 router.get("/", (req, res) => {
-  const books = req.app.db.get;
+  const books = req.app.db.get("books");
 
   res.send(books);
 });
